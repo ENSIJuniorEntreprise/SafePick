@@ -108,6 +108,8 @@ class ProductC(models.Model):
     origins_tags = models.CharField(max_length=10000, null=True)
     manufacturing_places = models.CharField(max_length=10000, null=True)
     manufacturing_places_tags = models.CharField(max_length=10000, null=True)
+    pnns_groups_1 = models.CharField(max_length=10000, null=True)
+    pnns_groups_2 = models.CharField(max_length=10000, null=True)
     labels = models.CharField(max_length=10000, null=True)
     labels_tags = models.CharField(max_length=10000, null=True)
     labels_en = models.CharField(max_length=10000, null=True)

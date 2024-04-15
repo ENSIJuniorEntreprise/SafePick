@@ -65,6 +65,8 @@ class Migration(migrations.Migration):
                 ('contamination', models.JSONField(null=True)),
                 ('developmental_reproductive_toxicity', models.JSONField(null=True)),
                 ('miscellaneous', models.JSONField(null=True)),
+                ('pnns_groups_1', models.CharField(max_length=10000, null=True)),
+                ('pnns_groups_2', models.CharField(max_length=10000, null=True)),
                 ('score', models.DecimalField(decimal_places=2, max_digits=10000, null=True)),
             ],
         ),

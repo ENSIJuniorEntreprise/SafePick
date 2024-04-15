@@ -5,6 +5,10 @@ from django.conf import settings
 from django.http import JsonResponse
 from .models import ProductF,ProductC
 import json
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 def get_productF_field(request, product_code, field_name):
     my_client = pymongo.MongoClient(settings.DB_NAME)
@@ -52,6 +56,10 @@ def cosmeticApi(request, id=0):
         
         return JsonResponse(med_details, safe=False)
     
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 def Alternatives(request, product_id, collection_name):
     if request.method == 'GET':
         try:
@@ -77,11 +85,17 @@ def Alternatives(request, product_id, collection_name):
                 # If both specific_category and pnns_groups_2 are null, return an error
                 if not specific_category:
                     return JsonResponse({'error': 'No category found for the product'}, status=404)
+<<<<<<< Updated upstream
                 
                 # Retrieve products with the same category but not from the same collection
                 products_with_same_category = dbname.food.find({'pnns_groups_1': specific_category})
                 for product in products_with_same_category:
                     print(product)
+=======
+
+                # Retrieve products with the same category but not from the same collection
+                products_with_same_category = dbname.food.find({'pnns_groups_1': specific_category})
+>>>>>>> Stashed changes
 
                 if collection_name == "food":
                     # Filter products based on score
@@ -89,6 +103,7 @@ def Alternatives(request, product_id, collection_name):
                     # Sort the products by nutriscore_score_out_of_100
                     sorted_products = sorted(products_with_same_category, key=lambda x: x.get('nutriscore_score_out_of_100', 0), reverse=True)
                 else:
+<<<<<<< Updated upstream
                     if collection_name == "cosmetics":
                         # Filter products based on score
                         products_with_same_category = [product for product in products_with_same_category]
@@ -97,6 +112,11 @@ def Alternatives(request, product_id, collection_name):
                         sorted_products = sorted(products_with_same_category, key=lambda x: x['_id'], reverse=True)
 
                 print(products_with_same_category)
+=======
+                    # Filter products based on score
+                    products_with_same_category = [product for product in products_with_same_category if product.get('score', 0) >= current_product_score]
+                    sorted_products = sorted(products_with_same_category, key=lambda x: x.get('score', 0), reverse=True)
+>>>>>>> Stashed changes
 
                 # Serialize the products
                 serialized_products = []
@@ -124,3 +144,7 @@ def Alternatives(request, product_id, collection_name):
                 return JsonResponse({'error': 'Product not found'}, status=404)
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
