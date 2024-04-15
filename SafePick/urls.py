@@ -6,5 +6,6 @@ from django.conf import settings
 urlpatterns = [
     path('food/', views.foodApi),
     path('cosmetics/', views.cosmeticApi),
-    path('food/<int:product_code>/<str:field_name>/', views.get_productF_field, name='get_product_field')
+    path('food/<int:product_code>/<str:field_name>/', views.get_productF_field, name='get_product_field'),
+    path('products/<str:product_id>/<str:collection_name>/', views.Alternatives, name='Alternatives'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -82,7 +82,7 @@ class ProductF(models.Model):
     nutrition_score_fr_100g = models.DecimalField(max_digits=10000, decimal_places=2, null=True)
     phylloquinone_100g = models.DecimalField(max_digits=10000, decimal_places=2, null=True)
     nutriscore_score_out_of_100 = models.IntegerField(null=True)
-    image = models.BinaryField()
+    image = models.BinaryField(default=b'') 
 
 
     def __str__(self):
@@ -127,6 +127,7 @@ class ProductC(models.Model):
     states_en = models.CharField(max_length=10000, null=True)
     main_category = models.CharField(max_length=10000, null=True)
     main_category_en = models.CharField(max_length=10000, null=True)
+    pnns_groups_1 = models.CharField(max_length=10000, null=True)
     image_url = models.URLField(null=True)
     image_small_url = models.URLField(null=True)
     allergens = models.JSONField(null=True)

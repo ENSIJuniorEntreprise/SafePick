@@ -51,6 +51,7 @@ class Migration(migrations.Migration):
                 ('states_en', models.CharField(max_length=10000, null=True)),
                 ('main_category', models.CharField(max_length=10000, null=True)),
                 ('main_category_en', models.CharField(max_length=10000, null=True)),
+                ('pnns_groups_1', models.CharField(max_length=10000, null=True)),
                 ('image_url', models.URLField(null=True)),
                 ('image_small_url', models.URLField(null=True)),
                 ('allergens', models.JSONField(null=True)),
